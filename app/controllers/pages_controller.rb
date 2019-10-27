@@ -5,6 +5,15 @@ class PagesController < ApplicationController
     if session[:img_array].empty? || params["button_action"] == "refresh"
       session[:img_array] = get_scryfall_images
     end
+
+
+    session[:refresh_counter] = session[:refresh_counter] || 0
+
+    if params["button_action"] == "refresh"
+      session[:refresh_counter] += 1
+    end
+    
+    @refresh_counter = session[:refresh_counter]
   end
 
 

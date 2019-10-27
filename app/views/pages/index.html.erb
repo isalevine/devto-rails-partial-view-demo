@@ -8,3 +8,8 @@
 <div class="card_container">
     <%= render partial: '/pages/cards/card', collection: session[:img_array], as: :img_hash %>
 </div>
+
+<div class="refresh_form">
+    <%= render partial: '/pages/forms/refresh_button' %>
+    <%= render partial: '/pages/forms/refresh_counter', locals: {counter: @refresh_counter} %>
+</div>
