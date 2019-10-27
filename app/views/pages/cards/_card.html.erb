@@ -1,5 +1,7 @@
-<%= render partial: "pages/cards/card_image", locals: {image: img_hash["art_crop"]} %>
+<%# /app/views/pages/cards/_card.html.erb %>
 
-<%= render partial: "pages/cards/card_name", locals: {name: img_hash["name"]} %>
+<div class="card">
+    <h3>This is the _card partial</h3>
 
-<%= render partial: "pages/cards/card_artist", locals: {artist: img_hash["artist"]} %>
+    <%= render partial: '/pages/cards/card_image' %>
+</div>

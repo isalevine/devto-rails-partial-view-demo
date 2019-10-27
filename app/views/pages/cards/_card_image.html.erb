@@ -1,1 +1,7 @@
-<%= image_tag(image) %>
+<%# /app/views/pages/cards/_card_image.html.erb %>
+
+<div class="card_image">
+    <h4>This is the _card_image partial</h4>
+
+    <%= image_tag(session[:img_array][0]["image"]) %>
+</div>
