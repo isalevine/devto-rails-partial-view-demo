@@ -6,7 +6,5 @@
 <h2>Let's add some Magic: the Gathering card art!</h2>
 
 <div class="card_container">
-    <%= render partial: '/pages/cards/card' %>
-    <%= render partial: '/pages/cards/card' %>
-    <%= render partial: '/pages/cards/card' %>
+    <%= render partial: '/pages/cards/card', collection: session[:img_array], as: :img_hash %>
 </div>
