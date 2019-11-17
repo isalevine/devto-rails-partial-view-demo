@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
     if session[:img_array].empty? || params["button_action"] == "refresh"
       scryfall_service = ScryfallService.new
-      session[:img_array] = scryfall_service.get_scryfall_images
+      session[:img_array] = scryfall_service.get_images
     end
 
 

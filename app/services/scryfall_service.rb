@@ -24,7 +24,7 @@ class ScryfallService
         end
     end
     
-    def get_scryfall_images    # add optional args w/ (creatures*) ?
+    def get_images    # add optional args w/ (creatures*) ?
         api_url = "https://api.scryfall.com/cards/search?q="
         img_array = []
         creature_search_array = ["merfolk", "goblin", "angel", "sliver"]
