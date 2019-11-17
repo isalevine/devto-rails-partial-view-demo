@@ -3,8 +3,10 @@ class PagesController < ApplicationController
     session[:img_array] ||= []
 
     if session[:img_array].empty? || params["button_action"] == "refresh"
-      scryfall_query_service = ScryfallQueryService.new
-      session[:img_array] = scryfall_query_service.get_images
+      # scryfall_query_service = ScryfallQueryService.new
+      # session[:img_array] = scryfall_query_service.get_scryfall_images
+      swccgdb_query_service = SWCCGDBQueryService.new
+      session[:img_array] = swccgdb_query_service.get_swccgdb_images
     end
 
 
