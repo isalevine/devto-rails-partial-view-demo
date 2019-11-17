@@ -1,14 +1,14 @@
 class PagesController < ApplicationController
   def index
-    session[:img_array] = session[:img_array] || []
+    session[:img_array] ||= []
 
     if session[:img_array].empty? || params["button_action"] == "refresh"
-      scryfall_service = ScryfallService.new
-      session[:img_array] = scryfall_service.get_images
+      scryfall_query_service = ScryfallQueryService.new
+      session[:img_array] = scryfall_query_service.get_images
     end
 
 
-    session[:refresh_counter] = session[:refresh_counter] || 0
+    session[:refresh_counter] ||= 0
 
     if params["button_action"] == "refresh"
       session[:refresh_counter] += 1

@@ -1,5 +1,4 @@
-class ScryfallService
-    
+class ScryfallQueryService
     def get_json(url)
         response = RestClient.get(url)
         json = JSON.parse(response)
@@ -39,5 +38,4 @@ class ScryfallService
 
         img_array.sample(9)
     end
-
 end
