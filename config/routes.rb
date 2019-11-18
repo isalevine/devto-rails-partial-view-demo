@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  get "/", to: "pages#index"
-  post "/", to: "pages#index"
+  get "/mtg", to: "pages#mtg"
+  post "/mtg", to: "pages#mtg"
+
+  get "/swccg", to: "pages#swccg"
+  post "/swccg", to: "pages#swccg"
 end

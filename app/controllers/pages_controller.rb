@@ -1,23 +1,45 @@
 class PagesController < ApplicationController
-  def index
+  def mtg
+    update_session("mtg")
+    @refresh_counter = session[:refresh_counter]
+  end
+
+  def swccg
+    update_session("swccg")
+    @refresh_counter = session[:refresh_counter]
+  end
+
+
+  private
+
+  def update_session(current_game)
+    if session[:game] != current_game || !session[:game]   # empty img_array if switching games
+      session[:img_array] = []
+      session[:game] = current_game
+    end
+
     session[:img_array] ||= []
 
     if session[:img_array].empty? || params["button_action"] == "refresh"
-      # scryfall_query_service = ScryfallQueryService.new
-      # session[:img_array] = scryfall_query_service.get_scryfall_images
-      swccgdb_query_service = SWCCGDBQueryService.new
-      session[:img_array] = swccgdb_query_service.get_swccgdb_images
-    end
+      if current_game == "mtg"
+        scryfall_query_service = ScryfallQueryService.new
+        session[:img_array] = scryfall_query_service.get_scryfall_images
 
+      elsif current_game == "swccg"
+        swccgdb_query_service = SWCCGDBQueryService.new
+        session[:img_array] = swccgdb_query_service.get_swccgdb_images
+
+      # add additional games here
+      end
+    end
 
     session[:refresh_counter] ||= 0
 
     if params["button_action"] == "refresh"
       session[:refresh_counter] += 1
     end
-    
-    @refresh_counter = session[:refresh_counter]
   end
+
 end
 
 

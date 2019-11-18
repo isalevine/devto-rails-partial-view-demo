@@ -1,0 +1,15 @@
+<%# /app/views/pages/swccg.html.erb %>
+
+<h1>Pages#swccg</h1>
+<p>Find me in app/views/pages/swccg.html.erb</p>
+
+<h2>Let's add some Star Wars CCG card art!</h2>
+
+<div class="card_container">
+    <%= render partial: '/pages/cards/card', collection: session[:img_array], as: :img_hash %>
+</div>
+
+<div class="refresh_form">
+    <%= render partial: '/pages/forms/refresh_button' %>
+    <%= render partial: '/pages/forms/refresh_counter', locals: {counter: @refresh_counter} %>
+</div>
