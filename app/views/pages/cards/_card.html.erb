@@ -3,7 +3,7 @@
 <div class="card">
     <h3>This is the _card partial</h3>
 
-    <%= render partial: '/pages/cards/card_image', locals: {image: img_hash["image"]} %>
-    <%= render partial: '/pages/cards/card_name', locals: {name: img_hash["name"]} %>
-    <%= render partial: '/pages/cards/card_artist', locals: {artist: img_hash["artist"]} %>
+    <%= render '/pages/cards/card_image', image: img_hash["image"] %>
+    <%= render '/pages/cards/card_name', name: img_hash["name"] %>
+    <%= render '/pages/cards/card_artist', artist: img_hash["artist"] %>
 </div>
